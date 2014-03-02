@@ -1,0 +1,16 @@
+extends layout
+
+block title
+  title Gladys
+
+block meta
+  meta(name='description', content='Gladys is not here...')
+  meta(property='og:image', content='http://gladysmusic.com/img/thumbnail.jpg')
+
+block stylesheets
+  != css('static')
+
+block body
+  #_404.page
+    h2: span 404
+    .holder

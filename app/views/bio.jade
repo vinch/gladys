@@ -1,0 +1,16 @@
+extends layout
+
+block title
+  title Bio / Gladys
+
+block meta
+  meta(name='description', content='A very very STUPID GUY is coming...')
+  meta(property='og:image', content='http://gladysmusic.com/img/thumbnail.jpg')
+
+block stylesheets
+  != css('static')
+
+block body
+  #bio.page
+    h2: span Bio
+    .holder

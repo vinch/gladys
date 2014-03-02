@@ -1,0 +1,34 @@
+!!! 5
+html
+  
+  head
+    title Gladys Official Website
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='The first video teaser by the new pop-rock singer from Belgium is now online!')
+    meta(property='og:image', content='http://www.gladysmusic.com/assets/img/gladys.jpg')
+    != css('teaser')
+  
+  body
+    iframe#fb(src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FGladysofficial&amp;send=false&amp;layout=box_count&amp;width=50&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=65&amp;locale=en_US&amp;appId=437615173003273", scrolling="no", frameborder="0", style="border:none; overflow:hidden; width:50px; height:65px;", allowTransparency="true")
+    #video
+      #player
+      #layer
+    #end
+      a#replay(href='#') Replay
+      div.fb-like(data-href="http://www.facebook.com/Gladysofficial", data-send="false", data-layout="box_count", data-width="450", data-show-faces="true")
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js')
+    != js('teaser')
+    script.
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-42827292-1']);
+      _gaq.push(['_setDomainName', window.location.host]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
