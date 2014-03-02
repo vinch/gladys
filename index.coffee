@@ -57,7 +57,7 @@ redirectWWW = (req, res, next) ->
 app.all '*', redirectWWW, setLocals, logRequest, (req, res, next) ->
   next()
 
-app.get '/', (req, res) ->
+app.get '/home', (req, res) ->
   res.render 'home'
 
 app.get '/news', (req, res) ->
@@ -75,7 +75,7 @@ app.get '/bio', (req, res) ->
 app.get '/shop', (req, res) ->
   res.render 'shop'
 
-app.get '/teaser', (req, res) ->
+app.get '/', (req, res) ->
   res.render 'teaser'
 
 # 404
