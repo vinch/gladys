@@ -6,6 +6,7 @@ express = require 'express'
 ca = require 'connect-assets'
 request = require 'request'
 log = require('logule').init(module)
+xml2js = require 'xml2js'
 
 app = express()
 server = http.createServer app
@@ -66,17 +67,28 @@ app.get '/news', (req, res) ->
 app.get '/concerts', (req, res) ->
   res.render 'concerts'
 
+app.get '/photos', (req, res) ->
+  res.render 'photos'
+
 app.get '/videos', (req, res) ->
   res.render 'videos'
 
 app.get '/bio', (req, res) ->
   res.render 'bio'
 
-app.get '/shop', (req, res) ->
-  res.render 'shop'
+app.get '/contact', (req, res) ->
+  res.render 'contact'
 
 app.get '/teaser', (req, res) ->
   res.render 'teaser'
+
+# API
+
+app.get '/api/concerts', (req, res) ->
+  parser = new xml2js.Parser()
+  request 'http://datartists.be/xmlartist/artiste/nextstep/feea42a2d29bfb27989cfcca88f8dbff/Gladys/', (error, response, body) ->
+    parser.parseString body, (err, result) ->
+      res.send result
 
 # 404
 

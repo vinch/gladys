@@ -1,0 +1,20 @@
+extends layout
+
+block title
+  title Contact / Gladys
+
+block meta
+  meta(name='description', content='A very very STUPID GUY is coming...')
+  meta(property='og:image', content='http://gladysmusic.com/img/thumbnail.jpg')
+
+block stylesheets
+  != css('static')
+
+block body
+  #contact.page
+    h2: span Contact
+    .holder
+      p Management : <a href='mailto:mgmt@gladysmusic.com'>mgmt@gladysmusic.com</a>
+      p Production : <a href='mailto:info@wavemaster.be'>info@wavemaster.be</a>
+      p Presse : <a href='mailto:press@gladysmusic.com'>press@gladysmusic.com</a>
+      p Booking : <a href='mailto:mathieu@next-step.be'>mathieu@next-step.be</a>
