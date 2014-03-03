@@ -8,9 +8,12 @@ block meta
   meta(property='og:image', content='http://gladysmusic.com/img/thumbnail.jpg')
 
 block stylesheets
-  != css('static')
+  != css('photos')
 
 block body
   #photos.page
     h2: span Photos
     .holder
+      a(href='/img/photos/1.jpg', target='_blank'): img(src='/img/photos/1-small.jpg')
+      a(href='/img/photos/2.jpg', target='_blank'): img(src='/img/photos/2-small.jpg')
+      a(href='/img/photos/3.jpg', target='_blank'): img(src='/img/photos/3-small.jpg')
