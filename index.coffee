@@ -6,7 +6,7 @@ express = require 'express'
 ca = require 'connect-assets'
 request = require 'request'
 log = require('logule').init(module)
-xml2js = require 'xml2js'
+moment = require 'moment'
 
 app = express()
 server = http.createServer app
@@ -52,6 +52,9 @@ redirectWWW = (req, res, next) ->
   else
     next()
 
+# moment
+
+moment.locale 'fr'
 
 # routes
 
@@ -85,10 +88,19 @@ app.get '/teaser', (req, res) ->
 # API
 
 app.get '/api/concerts', (req, res) ->
-  parser = new xml2js.Parser()
-  request 'http://datartists.be/xmlartist/artiste/nextstep/feea42a2d29bfb27989cfcca88f8dbff/Gladys/', (error, response, body) ->
-    parser.parseString body, (err, result) ->
-      res.send result
+  concerts = []
+  request.get('http://api.bandsintown.com/artists/Gladys/events.json?api_version=2.0&app_id=Gladys', {
+    json: true
+  }, (error, response, body) ->
+    body.forEach (item) ->
+      concerts.push {
+        date: moment(item.datetime).format 'LL'
+        venue: item.venue.name
+        location: item.formatted_location
+        url: item.facebook_rsvp_url
+      }
+    res.send concerts
+  )
 
 # 404
 

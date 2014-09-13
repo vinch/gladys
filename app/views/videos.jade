@@ -8,10 +8,12 @@ block meta
   meta(property='og:image', content='http://gladysmusic.com/img/thumbnail.jpg')
 
 block stylesheets
-  != css('static')
+  != css('videos')
 
 block body
   #videos.page
     h2: span Videos
     .holder
-      iframe(width="560", height="315", src="//www.youtube.com/embed/v4YJgrMYAOs", frameborder="0", allowfullscreen= true)
+      .videos-container
+        iframe(width="485", height="273", src="//www.youtube.com/embed/P7Xi5M3OqTA", frameborder="0", allowfullscreen= true)
+        iframe(width="485", height="273", src="//www.youtube.com/embed/v4YJgrMYAOs", frameborder="0", allowfullscreen= true)

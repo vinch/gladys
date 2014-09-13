@@ -1,4 +1,4 @@
-- nav = [ { name: 'News', href: '/news' }, { name: 'Concerts', href: '/concerts' }, { name: 'Photos', href: '/photos' }, { name: 'Videos', href: '/videos' }, { name: 'Bio', href: '/bio' }, { name: 'Contact', href: '/contact' } ]
+- nav = [ { name: 'News', href: '/news', className: 'news' }, { name: 'Concerts', href: '/concerts', className: 'concerts' }, { name: 'Photos', href: '/photos', className: 'photos' }, { name: 'Videos', href: '/videos', className: 'videos' }, { name: 'Bio', href: '/bio', className: 'bio' }, { name: 'Contact', href: '/contact', className: 'contact' } ]
 
 !!! 5
 //if lt IE 7
@@ -19,6 +19,7 @@ html.no-js(lang='en')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     block meta
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel='stylesheet')
     block stylesheets
   
   body
@@ -27,16 +28,16 @@ html.no-js(lang='en')
       .holder
         h1: a(href='/') Gladys
         .social
-          a.facebook(href='http://www.facebook.com/Gladysofficial', target='_blank') Facebook
-          a.twitter(href='http://twitter.com/Gladys_music', target='_blank') Twitter
-          a.youtube(href='http://www.youtube.com/user/GladysMusicChannel/videos', target='_blank') YouTube
-          a.itunes(href='https://itunes.apple.com/be/artist/gladys/id134564760?l=fr', target='_blank') iTunes
+          a.fa.fa-facebook(href='http://www.facebook.com/Gladysofficial', target='_blank', title='Facebook')
+          a.fa.fa-twitter(href='http://twitter.com/Gladys_music', target='_blank', title='Twitter')
+          a.fa.fa-youtube-play(href='http://www.youtube.com/user/GladysMusicChannel/videos', target='_blank', title='YouTube')
+          a.fa.fa-music(href='https://itunes.apple.com/be/artist/gladys/id134564760?l=fr', target='_blank', title='iTunes')
         nav
           each val in nav
             if currentPath === val.href
-              a.active(href= val.href)= val.name
+              a.active(href= val.href, class= val.className)= val.name
             else
-              a(href= val.href)= val.name
+              a(href= val.href, class= val.className)= val.name
 
     #content
       block body
@@ -46,9 +47,9 @@ html.no-js(lang='en')
         nav
           each val in nav
             if currentPath === val.href
-              a.active(href= val.href)= val.name
+              a.active(href= val.href, class= val.className)= val.name
             else
-              a(href= val.href)= val.name
+              a(href= val.href, class= val.className)= val.name
         p &copy 2014 Gladys
 
     script(src='/js/dist/website.min.js')

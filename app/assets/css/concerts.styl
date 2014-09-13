@@ -1,0 +1,25 @@
+@import 'nib'
+@import 'fonts'
+@import 'common'
+
+#concerts
+  h2
+    background: rgba(153, 138, 192, 0.5)
+  .holder
+    table
+      width: 100%
+      tr
+        cursor: pointer
+        td
+          padding: 10px 0
+          font-size: 16px
+          border-bottom: 1px solid gray
+          &:last-child
+            text-align: right
+            padding-right: 10px
+        &:last-child
+          td
+            border: 0
+        &:hover
+          td
+            background: lightgray

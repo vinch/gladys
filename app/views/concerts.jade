@@ -8,7 +8,7 @@ block meta
   meta(property='og:image', content='http://gladysmusic.com/img/thumbnail.jpg')
 
 block stylesheets
-  != css('static')
+  != css('concerts')
 
 block javascripts
   != js('concerts')
@@ -16,4 +16,15 @@ block javascripts
 block body
   #concerts.page
     h2: span Concerts
+
+  script(id='concerts-template', type='text/x-handlebars-template')
     .holder
+      table(cellspacing='0', cellpadding='0')
+        {{#each concerts}}
+        tr
+          td {{date}}
+          td: strong {{venue}}
+          td {{location}}
+          td
+            a(href="{{url}}", target='_blank') Tickets
+        {{/each}}
