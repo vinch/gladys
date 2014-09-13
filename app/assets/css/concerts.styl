@@ -11,8 +11,9 @@
       tr
         cursor: pointer
         td
-          padding: 10px 0
+          padding: 10px
           font-size: 16px
+          line-height: 1.4em
           border-bottom: 1px solid gray
           &:last-child
             text-align: right
@@ -23,3 +24,13 @@
         &:hover
           td
             background: lightgray
+
+@media (max-width: 530px)
+  #concerts
+    .holder
+      table
+        tr
+          td
+            font-size: 12px
+            &:last-child
+              display: none
