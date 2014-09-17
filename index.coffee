@@ -34,7 +34,7 @@ app.configure 'development', ->
   app.set 'BASE_URL', 'http://localhost:3993'
 
 app.configure 'production', ->
-  app.set 'BASE_URL', 'http://gladysmusic.com'
+  app.set 'BASE_URL', 'http://www.gladysmusic.com'
 
 # middlewares
 
@@ -46,19 +46,13 @@ setLocals = (req, res, next) ->
   app.locals.currentPath = req.path
   next()
 
-redirectWWW = (req, res, next) ->
-  if req.headers.host.match(/^www/) isnt null
-    res.redirect 301, 'http://' + req.headers.host.replace(/^www\./, '') + req.url
-  else
-    next()
-
 # moment
 
 moment.locale 'fr'
 
 # routes
 
-app.all '*', redirectWWW, setLocals, logRequest, (req, res, next) ->
+app.all '*', setLocals, logRequest, (req, res, next) ->
   next()
 
 app.get '/', (req, res) ->
